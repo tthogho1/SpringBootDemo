@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>確認画面</title>
+</head>
+<body>
+　　 <p>入力内容を確認し、問題なければ「送信」ボタンを押下してください。</p>
+<form method="post" th:action="@{/send}" th:object="${demoForm}">
+    <p th:text="'姓： ' + *{lastName}"></p>
+    <p th:text="'名： ' + *{firstName}"></p>
+    <p th:text="'生年月日： ' + *{birthYear} + '年'
+                     + *{getMonthItems().get('__*{birthMonth}__')} + '月'
+                     + *{getDayItems().get('__*{birthDay}__')} + '日'">
+    </p>
+    <p th:text="'性別： ' + *{getSexItems().get('__*{sex}__')}">
+    </p>
+    <p th:text="'確認チェック： ' + *{checked}">
+    </p>
+    <input name="send" type="submit" value="送信" />
+    <input name="back" type="submit" value="戻る" />
+</form>
+</body>
+</html>

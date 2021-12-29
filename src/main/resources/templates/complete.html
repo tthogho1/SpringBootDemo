@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>完了画面</title>
+</head>
+<body>
+	<p>完了しました。</p>
+	<table>
+	<tr th:each="user : ${users}">
+		<td th:text="${user.lastName + ' ' + user.firstName}" ></td>
+	</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.example.demo.domain.repository.UserMapper">
+	<insert id="insert" >
+		INSERT
+		INTO USER_INFORMATION (lastName, firstName) VALUES (#{lastName},
+		#{firstName})
+	</insert>
+	
+	<select id="selectAll"
+		resultType="com.example.demo.infrastructure.entity.UserEntity">
+		SELECT id, lastName,firstName FROM USER_INFORMATION
+	</select>
+</mapper>
