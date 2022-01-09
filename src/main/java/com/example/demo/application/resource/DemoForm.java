@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
- * Formオブジェクトのクラス
+ * DemoコントローラのFormオブジェクトのクラス
  */
 @Data
 public class DemoForm {

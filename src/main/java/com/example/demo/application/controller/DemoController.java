@@ -4,7 +4,6 @@ import com.example.demo.application.resource.DemoForm;
 import com.example.demo.domain.service.DemoService;
 import com.example.demo.infrastructure.entity.UserEntity;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -61,7 +60,7 @@ public class DemoController {
 	 * @param demoForm Formオブジェクト
 	 * @return 入力画面へのパス
 	 */
-	@GetMapping("/")
+	@GetMapping("/input")
 	public String index(DemoForm demoForm) {
 		log.info("call index");
 

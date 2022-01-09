@@ -1,95 +1,95 @@
 package com.example.demo.application.resource;
 
+import com.example.demo.infrastructure.entity.UserPass;
+import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.demo.infrastructure.entity.UserPass;
 
-import java.util.Collection;
- 
+/**
+ *  ユーザのアカウントを管理するクラス
+ * 
+ */
 public class UserPassAccount implements UserDetails {
  
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/** UserPassオブジェクト */
-    private UserPass userPass;
+	private UserPass userPass;
  
-    /** ユーザー権限情報 */
-    private Collection<GrantedAuthority> authorities;
+	/** ユーザー権限情報 */
+	private Collection<GrantedAuthority> authorities;
  
-    /**
+	/**
      * Spring-Security用のユーザーアカウント情報(UserDetails)を作成する
      * @param userPass UserPassオブジェクト
      * @param authorities ユーザー権限情報
      */
-    public UserPassAccount(UserPass userPass, Collection<GrantedAuthority> authorities){
-        this.userPass = userPass;
-        this.authorities = authorities;
-    }
+	public UserPassAccount(UserPass userPass, Collection<GrantedAuthority> authorities) {
+		this.userPass = userPass;
+		this.authorities = authorities;
+	}
  
-    /**
+	/**
      * ユーザー権限情報を取得する
      * @return ユーザー権限情報
      */
-    @Override
+	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.authorities;
-    }
+		return this.authorities;
+	}
  
-    /**
+	/**
      * パスワードを取得する
      * @return パスワード
      */
-    @Override
+	@Override
     public String getPassword() {
-        return userPass.getPass();
-    }
+		return userPass.getPass();
+	}
  
-    /**
+	/**
      * ユーザー名を取得する
      * @return ユーザー名
      */
-    @Override
+	@Override
     public String getUsername() {
-        return userPass.getName();
-    }
+		return userPass.getName();
+	}
  
-    /**
+	/**
      * アカウントが期限切れでないかを取得する
      * @return アカウントが期限切れでないか
      */
-    @Override
+	@Override
     public boolean isAccountNonExpired() {
-        return true;
-    }
+		return true;
+	}
  
-    /**
+	/**
      * アカウントがロックされていないかを取得する
      * @return アカウントがロックされていないか
      */
-    @Override
+	@Override
     public boolean isAccountNonLocked() {
-        return true;
-    }
+		return true;
+	}
  
-    /**
+	/**
      * アカウントが認証期限切れでないかを取得する
      * @return アカウントが認証期限切れでないか
      */
-    @Override
+	@Override
     public boolean isCredentialsNonExpired() {
-        return true;
-    }
+		return true;
+	}
  
-    /**
+	/**
      * アカウントが利用可能かを取得する
      * @return アカウントが利用可能か
      */
-    @Override
+	@Override
     public boolean isEnabled() {
-        return true;
-    }
+		return true;
+	}
 }
