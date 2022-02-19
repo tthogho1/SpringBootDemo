@@ -38,17 +38,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				//.antMatchers("","").permitAll()
+				.antMatchers("/sessionTimeout").permitAll() // 複数パス指定可
 				.anyRequest()
 				.authenticated()
+				.and()
+				.exceptionHandling().authenticationEntryPoint(new DemoLoginUrlAuthenticationEntryPoint("/login"))
 				.and()
 				.formLogin()
 				.loginPage("/login")
 				.defaultSuccessUrl("/input")
 				.permitAll()
 				.and()
-				.logout()
-				.permitAll();
+				.sessionManagement()
+				.maximumSessions(1); // 1セッションしか動作しない。1セッションで複数ブラウザからのログイン操作ができなくなる。
+		//		.expiredSessionStrategy(new DemoSessionInformationExpiredStrategy());
+		// .expiredUrl("/sessionExpired.html"); ここでURLを指定しても、セッションタイムアウト時には、/loginに遷移
+		// ログイン認証のほうが優先されている
 	}
 
 	/**
