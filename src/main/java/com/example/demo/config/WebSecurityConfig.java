@@ -32,13 +32,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		// 主に全体に対するセキュリティ設定を行う
-		// web.ignoring().antMatchers("/css/**","/js/**","/images/**");
+		// web.ignoring().antMatchers("/static/css/**", "/static/js/**", "/static/images/**");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/sessionTimeout").permitAll() // 複数パス指定可
+				.antMatchers("/sessionTimeout", "/css/**", "/js/**").permitAll() // 複数パス指定可
 				.anyRequest()
 				.authenticated()
 				.and()
