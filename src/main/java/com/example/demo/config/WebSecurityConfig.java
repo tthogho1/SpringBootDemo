@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		// 主に全体に対するセキュリティ設定を行う
-		// web.ignoring().antMatchers("/static/css/**", "/static/js/**", "/static/images/**");
+		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**");
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.formLogin()
 				.loginPage("/login")
-				.defaultSuccessUrl("/input")
+				.defaultSuccessUrl("/input", true)
 				.permitAll()
 				.and()
 				.sessionManagement()

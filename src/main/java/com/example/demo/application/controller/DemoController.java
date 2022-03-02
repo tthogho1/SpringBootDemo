@@ -109,7 +109,7 @@ public class DemoController {
 	public String back() {
 		log.info("call back");
 		
-		return "redirect:/";
+		return "redirect:/input";
 	}
 	
 	/**
