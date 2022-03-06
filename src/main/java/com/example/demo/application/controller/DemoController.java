@@ -47,8 +47,8 @@ public class DemoController {
 		//
 		// 名前・性別の初期値を設定する
 		//
-		demoForm.setLastName("姓");
-		demoForm.setFirstName("名");
+		demoForm.setLastName("");
+		demoForm.setFirstName("");
 		demoForm.setSex("1");
 
 		return demoForm;

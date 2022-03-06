@@ -26,7 +26,7 @@
 		<div class="row my-box-light">
 		<div class="row">	
 			<label class="col-2 form-label"> 生年月日： </label>
-			<input class="col-2" type="text" th:value="*{birthYear}" size="4"
+			<input class="col-1" type="text" th:value="*{birthYear}" 
 				maxlength="4" th:field="*{birthYear}"
 				th:classappend="${#fields.hasErrors('birthYear')} ? 'has-error'" />
 			<label class="col-1 form-label">年</label>

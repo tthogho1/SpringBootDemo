@@ -3,11 +3,20 @@
 <head th:replace="common/fragment::base_head('complete')"></head>
 <body>
 	<div th:replace="common/fragment::header"></div>
-	<div class="container-fluid">	
+	<div class="container-fluid">
 		<h2>DBに登録完了</h2>
-	<div th:each="user : ${users}">
-		<div th:text="${user.lastName + ' ' + user.firstName}" ></div>
-	</div>
+		<div class="d-table">
+			<div class="d-table-row">
+				<div class="d-table-cell p-2 bg-info text-white">NAME</div>
+			</div>
+			<div th:each="user : ${users}">
+				<div class="d-table-row">
+					<div class="d-table-cell p-2 bg-light text-black"
+						th:text="${user.lastName + ' ' + user.firstName}"></div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 	<div th:replace="common/fragment::footer"></div>
 </body>

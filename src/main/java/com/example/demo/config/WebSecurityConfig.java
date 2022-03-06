@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 
 /**
  * Spring-Securityの設定を行うクラス
@@ -32,13 +33,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		// 主に全体に対するセキュリティ設定を行う
-		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**");
+		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**", "/actuator/**");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/sessionTimeout", "/css/**", "/js/**").permitAll() // 複数パス指定可
+				.antMatchers("/sessionTimeout", "/css/**", "/js/**").permitAll() 
 				.anyRequest()
 				.authenticated()
 				.and()
@@ -47,13 +48,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/login")
 				.defaultSuccessUrl("/input", true)
+				//.defaultSuccessUrl("/input", false) // trueの場合必ず設定された遷移先、falseの場合は、ログイン画面繊維前に指定したURL
 				.permitAll()
+				.and()
+				.logout()
+				.logoutSuccessUrl("/login")
+				.and()
+				.exceptionHandling()
+				.authenticationEntryPoint(authenticationEntryPoint()) // セッションタイムアウト用
 				.and()
 				.sessionManagement()
 				.maximumSessions(1); // 1セッションしか動作しない。1セッションで複数ブラウザからのログイン操作ができなくなる。
 		//		.expiredSessionStrategy(new DemoSessionInformationExpiredStrategy());
 		// .expiredUrl("/sessionExpired.html"); ここでURLを指定しても、セッションタイムアウト時には、/loginに遷移
-		// ログイン認証のほうが優先されている
+		// ログイン認証のほうが優先されているため
 	}
 
 	/**
@@ -70,6 +78,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
  	
+	
+	@Bean
+	AuthenticationEntryPoint authenticationEntryPoint() {
+		return new SessionExpiredAuthenticationEntryPoint("/login");		
+	}
+		
 	/**
      * パスワードを暗号化するクラス 通常BCrypt 
      * @return パスワードを暗号化するクラスオブジェクト（ここでは、暗合化しないようにしている）
