@@ -1,6 +1,6 @@
 package com.example.demo.domain.repository;
 
-import com.example.demo.infrastructure.entity.UserEntity;
+import com.example.demo.domain.model.UserEntity;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 

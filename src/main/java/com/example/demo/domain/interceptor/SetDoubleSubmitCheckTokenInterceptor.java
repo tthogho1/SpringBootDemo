@@ -1,7 +1,7 @@
-package com.example.demo.application.interceptor;
+package com.example.demo.domain.interceptor;
 
-import com.example.demo.application.resource.DoubleSubmitCheckTokenHolder;
 import com.example.demo.config.DoubleSubmitCheckToken;
+import com.example.demo.domain.dto.DoubleSubmitCheckTokenHolder;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

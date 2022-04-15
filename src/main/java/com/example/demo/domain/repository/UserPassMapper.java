@@ -1,7 +1,8 @@
 package com.example.demo.domain.repository;
 
-import com.example.demo.infrastructure.entity.UserPass;
+import com.example.demo.domain.model.UserPass;
 import org.apache.ibatis.annotations.Mapper;
+
 
 /**
  *  ユーザのログイン情報を取得する

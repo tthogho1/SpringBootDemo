@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.anyRequest()
 				.authenticated()
 				.and()
-				.exceptionHandling().authenticationEntryPoint(new DemoLoginUrlAuthenticationEntryPoint("/login"))
+				.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint())
 				.and()
 				.formLogin()
 				.loginPage("/login")
@@ -53,9 +53,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.logout()
 				.logoutSuccessUrl("/login")
-				.and()
-				.exceptionHandling()
-				.authenticationEntryPoint(authenticationEntryPoint()) // セッションタイムアウト用
 				.and()
 				.sessionManagement()
 				.maximumSessions(1); // 1セッションしか動作しない。1セッションで複数ブラウザからのログイン操作ができなくなる。
@@ -81,7 +78,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Bean
 	AuthenticationEntryPoint authenticationEntryPoint() {
-		return new SessionExpiredAuthenticationEntryPoint("/login");		
+		return new DemoLoginUrlAuthenticationEntryPoint("/login");
+		//return new SessionExpiredAuthenticationEntryPoint("/login");		
 	}
 		
 	/**

@@ -1,6 +1,6 @@
-package com.example.demo.application.resource;
+package com.example.demo.domain.dto;
 
-import com.example.demo.infrastructure.entity.UserPass;
+import com.example.demo.domain.model.UserPass;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

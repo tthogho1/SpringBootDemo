@@ -1,8 +1,8 @@
 package com.example.demo.config;
 
-import com.example.demo.application.filter.DemoFilter;
-import com.example.demo.application.interceptor.DemoInterceptor;
-import com.example.demo.application.interceptor.SetDoubleSubmitCheckTokenInterceptor;
+import com.example.demo.domain.filter.DemoFilter;
+import com.example.demo.domain.interceptor.DemoInterceptor;
+import com.example.demo.domain.interceptor.SetDoubleSubmitCheckTokenInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

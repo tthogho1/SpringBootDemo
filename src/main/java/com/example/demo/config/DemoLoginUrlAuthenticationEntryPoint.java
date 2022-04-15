@@ -7,7 +7,7 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
 
 /**
  * Timeout用の設定。Timeout時にログイン画面に遷移してしまうため、sessionTimeout時の遷移先を指定。
- *
+ * exceptionHandling().authenticationEntryPointに登録する。
  */
 public class DemoLoginUrlAuthenticationEntryPoint extends LoginUrlAuthenticationEntryPoint {
 

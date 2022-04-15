@@ -12,7 +12,7 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
  * Spring-Securityの設定を行うクラスSessionが無効状態になっているとき、
  * デフォルトのリダイレクトURLの後ろにリクエストパラメータ"timeout"を付与する。
  * https://www.greptips.com/posts/847/ から
- * 
+ * exceptionHandling().authenticationEntryPointに登録する。
  */
 public class SessionExpiredAuthenticationEntryPoint extends LoginUrlAuthenticationEntryPoint {
 	public SessionExpiredAuthenticationEntryPoint(String loginFormUrl) {

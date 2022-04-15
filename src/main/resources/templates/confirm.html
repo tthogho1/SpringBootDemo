@@ -13,7 +13,7 @@
                      + *{getMonthItems().get('__*{birthMonth}__')} + '月'
                      + *{getDayItems().get('__*{birthDay}__')} + '日'">
 		</p>
-		<p th:text="'性別： ' + *{getSexItems().get('__*{sex}__')}"></p>
+		<p th:text="'性別： ' + *{getGenderItems().get('__*{gender}__')}"></p>
 		<p th:text="'確認チェック： ' + *{checked}"></p>
 		<input class="btn btn-primary"  name="send" type="submit" value="送信" /> 
 		<input class="btn btn-primary"  name="back" type="submit" value="戻る" />

@@ -1,7 +1,7 @@
 package com.example.demo.domain.service;
 
+import com.example.demo.domain.model.UserEntity;
 import com.example.demo.domain.repository.UserMapper;
-import com.example.demo.infrastructure.entity.UserEntity;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

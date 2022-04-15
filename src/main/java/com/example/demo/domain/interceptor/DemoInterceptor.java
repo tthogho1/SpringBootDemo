@@ -1,4 +1,4 @@
-package com.example.demo.application.interceptor;
+package com.example.demo.domain.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

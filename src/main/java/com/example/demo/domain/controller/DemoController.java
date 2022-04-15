@@ -1,8 +1,8 @@
-package com.example.demo.application.controller;
+package com.example.demo.domain.controller;
 
-import com.example.demo.application.resource.DemoForm;
+import com.example.demo.domain.dto.DemoForm;
+import com.example.demo.domain.model.UserEntity;
 import com.example.demo.domain.service.DemoService;
-import com.example.demo.infrastructure.entity.UserEntity;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -49,7 +49,7 @@ public class DemoController {
 		//
 		demoForm.setLastName("");
 		demoForm.setFirstName("");
-		demoForm.setSex("1");
+		demoForm.setGender("1");
 
 		return demoForm;
 	}

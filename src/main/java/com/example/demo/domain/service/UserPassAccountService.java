@@ -1,8 +1,8 @@
 package com.example.demo.domain.service;
 
-import com.example.demo.application.resource.UserPassAccount;
+import com.example.demo.domain.dto.UserPassAccount;
+import com.example.demo.domain.model.UserPass;
 import com.example.demo.domain.repository.UserPassMapper;
-import com.example.demo.infrastructure.entity.UserPass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

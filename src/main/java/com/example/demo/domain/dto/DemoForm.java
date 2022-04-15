@@ -1,4 +1,4 @@
-package com.example.demo.application.resource;
+package com.example.demo.domain.dto;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -44,7 +44,7 @@ public class DemoForm {
 
 	/** 性別 */
 	@NotNull
-	private String sex;
+	private String gender;
 
 	/** 確認チェック */
 	@NotNull(message="確認チェックをおこなってください")
@@ -69,11 +69,11 @@ public class DemoForm {
 	}
 
 	/** 性別のMapオブジェクト */
-	public Map<String, String> getSexItems() {
-		Map<String, String> sexMap = new LinkedHashMap<String, String>();
-		sexMap.put("1", "男");
-		sexMap.put("2", "女");
-		return sexMap;
+	public Map<String, String> getGenderItems() {
+		Map<String, String> genderMap = new LinkedHashMap<String, String>();
+		genderMap.put("1", "男");
+		genderMap.put("2", "女");
+		return genderMap;
 	}
 
 }

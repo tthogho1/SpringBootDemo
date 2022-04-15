@@ -58,7 +58,6 @@ public class DoubleSubmitCheckToken {
 	 * @param request HttpServletRequest
 	 * @return expected token トークン
 	 */
-	@SuppressWarnings("unchecked")
 	public static String getExpectedToken(HttpServletRequest request) {
 		return getExpectedToken(request, null);
 	}
@@ -70,7 +69,6 @@ public class DoubleSubmitCheckToken {
 	 * @param key キー
 	 * @return token
 	 */
-	@SuppressWarnings("unchecked")
 	public static String renewToken(HttpServletRequest request, String key) {
 		if (key == null) {
 			key = request.getRequestURI();
@@ -93,7 +91,6 @@ public class DoubleSubmitCheckToken {
 	 * @param request HttpServletRequest
 	 * @return token
 	 */
-	@SuppressWarnings("unchecked")
 	public static String renewToken(HttpServletRequest request) {
 		return renewToken(request, null);
 	}

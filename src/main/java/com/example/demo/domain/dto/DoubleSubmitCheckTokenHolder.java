@@ -1,4 +1,4 @@
-package com.example.demo.application.resource;
+package com.example.demo.domain.dto;
 
 /**
  * 二重送信防止チェックトークンホルダー
