@@ -4,16 +4,25 @@
 <body>
 	<div th:replace="common/fragment::header"></div>
 	<div class="container-fluid">
-		<h2>DBに登録完了</h2>
+		<h2>登録完了</h2>
 		<div class="d-table">
 			<div class="d-table-row">
-				<div class="d-table-cell p-2 bg-info text-white">NAME</div>
+				<div class="d-table-cell w-10 p-2 bg-info text-white text-center">名前</div>
+				<div class="d-table-cell w-50 p-2 bg-info text-white text-center">名前</div>
+				<div class="d-table-cell w-35 p-2 bg-info text-white text-center">誕生日</div>
+				<div class="d-table-cell w-15 p-2 bg-info text-white text-center">性別</div>
 			</div>
-			<div th:each="user : ${users}">
-				<div class="d-table-row">
-					<div class="d-table-cell p-2 bg-light text-black"
-						th:text="${user.lastName + ' ' + user.firstName}"></div>
-				</div>
+			<div class="d-table-row" th:each="user : ${users}">
+				<div class="d-table-cell w-10 p-2 bg-light text-back"
+					th:text="${#numbers.formatInteger(user.id,3)}"></div>
+				<div class="d-table-cell w-50 p-2 bg-light text-back"
+					th:text="${user.name}"></div>
+				<div class="d-table-cell w-35 p-2 bg-light text-black"
+					th:text="${user.birthday}"></div>
+				<div th:if="${user.gender == 1}" 
+					class="d-table-cell w-15 p-2 bg-light text-black">男</div>
+				<div th:if="${user.gender == 2}" 
+					class="d-table-cell w-15 p-2 bg-light text-black">女</div>					
 			</div>
 		</div>
 

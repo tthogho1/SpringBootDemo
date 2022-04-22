@@ -96,7 +96,7 @@ public class DemoController {
 	public String send(DemoForm demoForm) {
 		log.info("call send");
 
-		demoService.registUer(demoForm.getFirstName(), demoForm.getLastName());
+		demoService.registUer(demoForm);
 		return "redirect:/complete";
 	}
 	

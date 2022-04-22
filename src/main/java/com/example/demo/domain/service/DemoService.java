@@ -1,5 +1,6 @@
 package com.example.demo.domain.service;
 
+import com.example.demo.domain.dto.DemoForm;
 import com.example.demo.domain.model.UserEntity;
 import com.example.demo.domain.repository.UserMapper;
 import java.util.List;
@@ -18,12 +19,16 @@ public class DemoService {
 	/**
 	 * ユーザオブジェクトを作成する
 	 *                     
-	 * @param lastName 　姓
-	 * @param firstName 名
+	 * @param demoForm フォームデータ
 	 */
-	public void registUer(String lastName, String firstName) {
+	public void registUer(DemoForm demoForm) {
+		
+		UserEntity user = new UserEntity();		
+		user.setName(demoForm.getLastName() + " " + demoForm.getFirstName());
+		user.setBirthday(demoForm.getBirthYear() + demoForm.getBirthMonth() + demoForm.getBirthDay());
+		user.setGender(Integer.parseInt(demoForm.getGender()));
 
-		userMapper.insert(lastName, firstName);
+		userMapper.insert(user);
 	}
 	
 	/**

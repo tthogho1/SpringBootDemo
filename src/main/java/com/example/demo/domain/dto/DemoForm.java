@@ -2,6 +2,8 @@ package com.example.demo.domain.dto;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -11,7 +13,6 @@ import lombok.Data;
  */
 @Data
 public class DemoForm {
-
 	/* 
 	 *  バリデーションのエラーメッセージはメッセージファイルを使用して定義することも可能
 	 *  
@@ -30,6 +31,8 @@ public class DemoForm {
 	/** 生年月日_年  */
 	@NotNull(message="年を入力してください")
 	@NotEmpty(message="年を入力してください")
+	@Min(value = 1900, message="1900以上を入力してください")
+	@Max(value = 2099, message="2099以下を入力してください")
 	private String birthYear;
 
 	/** 生年月日_月 */
@@ -50,23 +53,6 @@ public class DemoForm {
 	@NotNull(message="確認チェックをおこなってください")
 	private String checked;
 
-	/** 生年月日_月のMapオブジェクト */
-	public Map<String, String> getMonthItems() {
-		Map<String, String> monthMap = new LinkedHashMap<String, String>();
-		for (int i = 1; i <= 12; i++) {
-			monthMap.put(String.valueOf(i), String.valueOf(i));
-		}
-		return monthMap;
-	}
-
-	/** 生年月日_日のMapオブジェクト */
-	public Map<String, String> getDayItems() {
-		Map<String, String> dayMap = new LinkedHashMap<String, String>();
-		for (int i = 1; i <= 31; i++) {
-			dayMap.put(String.valueOf(i), String.valueOf(i));
-		}
-		return dayMap;
-	}
 
 	/** 性別のMapオブジェクト */
 	public Map<String, String> getGenderItems() {

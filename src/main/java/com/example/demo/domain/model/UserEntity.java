@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 public class UserEntity {
 	private String id;
-	private String lastName;
-	private String firstName;
+	private String name;
+	private String birthday;
+	private int gender;
 }
